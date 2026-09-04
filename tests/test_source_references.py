@@ -872,6 +872,74 @@ class SourceReferenceValidationTests(unittest.TestCase):
     def test_checked_in_template_and_corpus_are_valid(self):
         self.assertEqual([], validate_repository(REPOSITORY_ROOT))
 
+    def test_duplicate_json_object_keys_are_rejected_before_reference_checks(self):
+        cases = {
+            "nested": (
+                '{"relationships": [{"evidence": ["SRC-404"], '
+                '"evidence": ["SRC-001"]}]}'
+            ),
+            "top-level": (
+                '{"relationships": [{"evidence": ["SRC-404"]}], ' '"relationships": []}'
+            ),
+        }
+        for name, metadata in cases.items():
+            exhibit_directory = self.repository_root / "exhibits" / name
+            exhibit_directory.mkdir(parents=True)
+            (exhibit_directory / "exhibit.json").write_text(
+                metadata,
+                encoding="utf-8",
+            )
+            (exhibit_directory / "sources.md").write_text(
+                "### SRC-001 — Original manual\n",
+                encoding="utf-8",
+            )
+
+        self.assertEqual(
+            [
+                "exhibits/nested/exhibit.json: duplicate JSON object key " '"evidence"',
+                "exhibits/top-level/exhibit.json: duplicate JSON object key "
+                '"relationships"',
+            ],
+            validate_repository(self.repository_root),
+        )
+
+    def test_duplicate_json_key_is_ascii_escaped_in_diagnostic(self):
+        cases = {
+            "bidi-override": "\u202e",
+            "line-separator": "\u2028",
+            "lone-surrogate": "\ud800",
+            "next-line": "\u0085",
+            "paragraph-separator": "\u2029",
+            "quote-and-backslash": 'key"\\',
+        }
+        for name, key in cases.items():
+            exhibit_directory = self.repository_root / "exhibits" / name
+            exhibit_directory.mkdir(parents=True)
+            rendered_key = json.dumps(key)
+            (exhibit_directory / "exhibit.json").write_text(
+                f"{{{rendered_key}: 1, {rendered_key}: 2}}",
+                encoding="utf-8",
+            )
+            (exhibit_directory / "sources.md").write_text(
+                "### SRC-001 — Original manual\n",
+                encoding="utf-8",
+            )
+
+        errors = validate_repository(self.repository_root)
+        self.assertEqual(
+            [
+                f"exhibits/{name}/exhibit.json: duplicate JSON object key "
+                f"{json.dumps(key)}"
+                for name, key in sorted(cases.items())
+            ],
+            errors,
+        )
+        for error in errors:
+            with self.subTest(error=repr(error)):
+                self.assertTrue(error.isascii())
+                self.assertEqual([error], error.splitlines())
+                error.encode("utf-8")
+
     def test_non_object_metadata_has_stable_diagnostic(self):
         for index, document in enumerate(([], None, "text", 42)):
             exhibit_directory = self.repository_root / "exhibits" / f"case-{index}"
