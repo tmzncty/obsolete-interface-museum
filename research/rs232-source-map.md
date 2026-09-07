@@ -1,6 +1,6 @@
 # RS-232 资料审查：标准、PC 实现与待核验冲突
 
-> 状态：source map complete；正式展品尚未开始。
+> 状态：source map complete；[Gate 2 阅读展品](../exhibits/rs232/README.md)已开始，状态为 `researching`；完整展品与硬件门禁尚未完成。
 >
 > 最后核验：2026-09-01。
 
