@@ -1,0 +1,39 @@
+{
+  "id": "rs232",
+  "name": "EIA/TIA-232 family and the PC serial-port implementation",
+  "aliases": ["RS-232"],
+  "object_kind": ["electrical-standard", "host-interface", "ecosystem"],
+  "status": "researching",
+  "era": {
+    "introduced": null,
+    "mainstream": null,
+    "declined": null,
+    "notes": "This reading slice compares V.24 (02/2000) definitions with the IBM PC April 1984 documented implementation; these source dates are not interface lifecycle dates."
+  },
+  "layers": {
+    "physical": { "status": "stub", "notes": "Documented object boundaries only; full standard/implementation contact mapping remains gated." },
+    "electrical": { "status": "stub", "notes": "IBM implementation and UART/line-interface boundary only; no complete electrical-standard or device-safety review." },
+    "signaling": { "status": "stub", "notes": "Data/control and UART framing are distinguished; full timing/framing/version comparison is unfinished." },
+    "protocol": { "status": "documented", "notes": "Limited to selected DTE/DCE data/control circuit definitions in V.24 (02/2000), not a complete communications protocol." },
+    "host": { "status": "documented", "notes": "Limited to the IBM April 1984 Technical Reference BIOS/8250 services and send/status reading path; no modern OS or adapter claims." },
+    "ecosystem": { "status": "stub", "notes": "IBM external-modem context and later TI PC application context only; lifecycle and replacement/continuity research is unfinished." }
+  },
+  "roles": ["DTE", "DCE"],
+  "topology": null,
+  "evidence_summary": {
+    "highest_level": "E1",
+    "primary_sources": 2,
+    "hardware_status": "blocked-for-hardware",
+    "notes": "Two E1 sources (V.24 and IBM publication 6361453) and one E2 TI application note were used. No E3 emulation or E4 measurement was performed."
+  },
+  "relationships": [],
+  "safety_notes": [
+    "No executable pin-to-pin, null-modem, hot-plug, or TTL-UART-to-RS-232 wiring instructions are provided.",
+    "TIA/ISO full-text and edition review, specific endpoint and cable evidence, electrical levels, directions, grounding, power, and hot-plug conditions remain unresolved."
+  ],
+  "open_questions": [
+    "Obtain and review the official TIA entry/full text, relevant ISO 2110 editions, IBM 9-contact original documentation, and edition differences identified in the source map.",
+    "Complete lifecycle, use-case-specific replacement and inheritance research before asserting relationship records.",
+    "Establish sources for any selected modern OS, driver, adapter, and reproducible experiment before describing their behavior."
+  ]
+}

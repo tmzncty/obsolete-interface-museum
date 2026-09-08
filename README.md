@@ -60,7 +60,7 @@ exhibits/<interface>/
 
 ### 外部接口
 
-- RS-232 / DE-9 / DB-25
+- [RS-232 阅读展品](exhibits/rs232/README.md) — `researching`：DTE/DCE 与 IBM BIOS/8250 个案；DE-9 / DB-25 映射和硬件工作仍受门禁约束（[资料地图](research/rs232-source-map.md)）
 - Centronics / IEEE 1284 并口
 - PS/2 与 AT 键盘接口
 - VGA
