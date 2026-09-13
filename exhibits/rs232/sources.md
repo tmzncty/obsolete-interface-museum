@@ -4,9 +4,11 @@
 
 ## 本期审阅范围
 
-核验日期：**2026-09-08**。通过正常公开入口取得下列文献，亲读所列章节；IBM 扫描的封面与关键 BIOS 清单另经页面图像核对。只在仓库记录引用与结论，不提交下载的全文或扫描图。
+初始切片核验日期：**2026-09-08**。通过正常公开入口取得 SRC-001 至 SRC-003，亲读所列章节；IBM PC/5150 扫描的封面与关键 BIOS 清单另经页面图像核对。
 
-本期共使用 **2 份 E1（V.24、IBM 手册）和 1 份 E2（TI 应用笔记）**。研究地图中的其他来源不因被列在那里就自动算作本展品实际使用的 E1；原地图的 2026-09-01 核验记录与本期记录分开保留。
+**2026-09-09 增补**：取得并审阅 SRC-004 的 IBM AT 适配器章节，核对卷/章身份与关键原图；复用既有 TI PDF 对读其 pp. 1、7–9。新增核验不表示重新审阅了旧切片的每一页。只在仓库记录引用与结论，不提交下载的全文或扫描图。
+
+实际使用的 E1 数由 2 份增至 3 份，目前共 **3 份 E1（V.24、IBM PC/5150 手册、IBM AT 适配器章节）和 1 份 E2（TI 应用笔记）**。新增 IBM 文献的 PDF、OCR、多个页面和多次复核只计一份 E1。研究地图中的其他来源不因被列在那里就自动算作本展品实际使用的 E1；原地图的 2026-09-01 记录与两次切片核验分开保留。
 
 ## Source ledger
 
@@ -59,11 +61,41 @@ OCR 对汇编操作数有误识别，本期对 pp. 5-51–5-52 的关键字段�
 - **Author / organization:** Texas Instruments。
 - **Document / version / date:** *Interface Circuits for TIA/EIA-232-F*, **SLLA037A，September 2002**。
 - **Location:** [TI 官方 PDF](https://www.ti.com/lit/an/slla037a/slla037a.pdf)。
-- **Pages / section:** p. 1，General Information / TIA/EIA-232-F Industry Standard for Data Transmission；p. 7，The DB9S Connector。另读 pp. 8–9 的邻接说明以确认范围，不将其中的配线图转成操作建议。此次 PDF 文件页 5、11 分别对应印刷页 1、7。
-- **Used for:** UART/ACE 的 framing 角色、该笔记聚焦 PC 9-contact subset 的范围、不同外围设备的应用语境及原词 DB9S。
+- **Pages / section:** p. 1，General Information / TIA/EIA-232-F Industry Standard for Data Transmission；p. 7，The DB9S Connector / Figure 6；pp. 8–9 的邻接信号说明与 Figure 8 分层例子。2026-09-09 再次核对这些原图，用于与 SRC-004 的功能/分层对读；不将其中的配线图转成操作建议。此次 PDF 文件页 5、11–13 分别对应印刷页 1、7–9。
+- **Used for:** UART/ACE 的 framing 角色、该笔记聚焦 PC 9-contact subset 的范围、不同外围设备的应用语境及原词 DB9S；three transmit / five receive 的功能分组及其与 IBM 指定实现的限定对照。
 - **Scope:** TI 2002 年对 PC 接口的后续解释，不代替 E1 标准、原厂机器手册或特定设备验证。
 - **Notes:** 其“physical layer”措辞涵盖电气讨论；本仓仍按自己的六层模型分开 electrical 与 mechanical。本期不据其简介填入完整起源/衰退时间线，不采用它作为机械命名裁决或 null-modem 接线依据。
 - **Research-map ID:** S8。
+
+<a id="src-004"></a>
+
+### SRC-004 — IBM AT Serial/Parallel Adapter
+
+- **Evidence level:** E1，原厂技术参考中的指定适配器章节。
+- **Author / organization:** International Business Machines Corporation。
+- **Document / version / date:** *Personal Computer Hardware Reference Library — Technical Reference — Options and Adapters, Volume 2*；卷首为 **Revised Edition (April 1984)**。所用章标题为 *Serial/Parallel Adapter*，标题页边栏指名 **IBM Personal Computer AT Serial/Parallel Adapter**；本次所引正文页脚为 **August 31, 1984**。卷日期与章页日期分开记录，不用文件名的 `Apr84` 替换章页日期，也不据此猜测扫描的装订/增补过程。
+- **Publication / part number:** 本次核验页未确认独立编号；不从 SRC-002 或另一本 AT 系统主手册移用编号。以卷名、章名、版本/章页日期、精确页码及下列扫描哈希识别本次引用。
+- **Location:** [Internet Archive 文献入口](https://archive.org/details/bitsavers_ibmpccardsptionsandAdaptersVolume2Apr84_25079400)；[本次所用 PDF 扫描](https://archive.org/download/bitsavers_ibmpccardsptionsandAdaptersVolume2Apr84_25079400/Technical_Reference_Options_and_Adapters_Volume_2_Apr84.pdf)。2026-09-09 经正常公开入口取得；仅归档引用，不复制扫描进仓库。
+- **Pages / section:** 卷标题/版本、章标题/目录及正文 pp. 1–3、19–20、24，文件页映射见下表。只采用列出的功能说明/原图，不声称完整阅读全卷或审查所有寄存器、规格及原理图。
+- **Used for:** 明确的原厂九接点串行实现；卡上的串/并端口与可选串行线缆端的不同对象；controller、EIA receivers/drivers 与 connector 分层；串行图的数据/控制功能与 SRC-003 的限定对读。
+- **Scope:** 所引 IBM AT 适配器及文献所述可选 IBM Communications Cable (9-Pin)，不是全部 PC/AT、兼容卡或任意 9-to-25 转接器；不是完整标准合规或实物安全验证。
+- **Notes:** PDF 为 692 文件页、25,079,400 bytes；SHA-256 `b5bf24ea3e63082d5c637db8b08469c6d4929b4b9f6b7b24c7a211338b42a15f`。文件大小及 SHA-1 `14175f624c7822071ebc2d2cd2e8edf4b66aeec3` 与 Archive 元数据一致；OCR 仅作定位，关键图和卷/章身份另经视觉复核。获取记录与范围另见研究地图 S13。
+- **Research-map ID:** S13。
+
+以下 PDF 页均为从 1 开始的文件页序，不是全卷统一连续的印刷页码。
+
+| 文献位置 / 印刷页 | 此次 692 页扫描中的文件页 | 复核重点 |
+|---|---:|---|
+| 卷标题 / 版本页 ii | 2 / 3 | Options and Adapters / Volume 2；Revised Edition (April 1984) |
+| AT 适配器章标题 / Contents iii | 494 / 496 | 适配器身份；Serial 与 Parallel 是本章不同部分 |
+| 1 | 498 | 同一卡两个功能、9-pin 串行口及可选 9/25 通信线缆 |
+| 2 | 499 | Serial Portion Block Diagram：controller、EIA receivers/drivers、9-pin connector |
+| 3 | 500 | Communications Application 与 framing 的邻接范围；不采用 jumper 操作 |
+| 19 | 516 | 串行图的适配器/External Device 观察边界与数据/控制分组 |
+| 20 | 517 | Parallel Portion 首段的八位数据、standard TTL levels、25-pin D-shell；不采用未知手写 J2 改标 |
+| 24 | 521 | Parallel Interface 图及并行设备语境 |
+
+上述正文所引页脚均为 August 31, 1984。p. 19 / p. 24 的图用于核验对象和功能，不被转抄为接点表、pin-to-pin 表或配线图。p. 20 的手写风险和 p. 1 的 all-signals 措辞保留在下方冲突表。
 
 ## Claim ledger
 
@@ -78,6 +110,10 @@ OCR 对汇编操作数有误识别，本期对 pp. 5-51–5-52 的关键字段�
 | CLM-005 | 该 IBM 发送分支先设 DTR/RTS，等 DSR/CTS，再等发送 holding register 就绪后写字符，等待可超时 | host | SRC-002，p. 5-52 lines 1698–1727；p. 5-53 lines 1763–1789 | 原厂清单分析；不是执行 trace 或通用串口算法 | confirmed |
 | CLM-006 | IBM 文献中的 EIA drivers/receivers 供电与主机逻辑/8250 角色应分开读 | electrical / host | SRC-002，pp. 3-3、5-51–5-53；SRC-003，p. 1 | IBM 实现与 TI 的 ACE 分层解释 | supported |
 | CLM-007 | IBM 外置 modem/25-contact 个案与 TI 后续 PC 9-contact subset 是两个受限定的观察窗口 | physical / ecosystem | SRC-002，pp. 8-3–8-5；SRC-003，pp. 1、7 | 1984 IBM 与 2002 TI 文献，非普遍映射/替代链 | supported |
+| CLM-008 | 指定 IBM AT 适配器同时提供 9-contact 串行口和 25-contact 并行口；后者有八位并行数据及 standard TTL levels 的原文语境 | physical / signaling / electrical | SRC-004，pp. 1、19–20、24 | 仅此适配器文献，不是通用接点/电压要求 | confirmed |
+| CLM-009 | 文献所述可选串行通信线缆另有 25-contact 端，与卡的 25-contact 并行口是不同对象；接点数/外形不足以认定功能 | physical / ecosystem | SRC-004，pp. 1、20、24 | 文献内部对象对照，不证明任意线缆映射、实物互插或电气兼容 | confirmed |
+| CLM-010 | AT 串行框图将 communications controller、EIA receivers/drivers 与 9-pin connector 分开；并串转换不等于外部 parallel port | physical / electrical / host | SRC-004，pp. 1–3；对读 SRC-003，pp. 1、9 Figure 8 | 各自实现的分层证据，不互相移植芯片型号或软件路径 | confirmed |
+| CLM-011 | IBM 串行图从适配器视角的三发五收数据/控制分组，与 TI 的 three transmit / five receive 说明可限定对读；Signal Ground 另列 | signaling / roles | SRC-004，p. 19；SRC-003，pp. 1、7–9 | 功能分组对照；三发不是三条用户数据通道，不解决全部标准 circuits 或接线 | supported |
 
 ## 冲突与不采用的推论
 
@@ -86,10 +122,15 @@ OCR 对汇编操作数有误识别，本期对 pp. 5-51–5-52 的关键字段�
 | IBM p. 8-3 称 V.24 “equivalent to” RS-232C | 保存为 1984 同期表达；不写无版次的 `V.24 = RS-232`。SRC-001 (2000) 自身明确分派功能、电气与机械文献。 |
 | IBM `Clear to Send` 与 V.24 `Ready for sending` | 保留各自名称；通过 IBM p. 8-4 的 circuit 106 标注对读，不悄悄改写源文献。 |
 | DB9S / DE-9 等名称 | TI 原词不改；地图中的命名研究仍可检索，但本期不冒称重新读过其余厂商来源。 |
+| IBM AT 卷 April 1984 / 所引章页 August 31, 1984 | 两层日期分别引用；文件名不替换章页日期，不从文献日期推定九接点首次采用，也不把 TI 的后续缩小空间描述写成 IBM 设计动机。 |
+| IBM 可选线缆的 all-signals / TI 的 PC subset | SRC-004 p. 1 在该线缆连接到指定适配器的条件下，称其 25-pin 端 “has all the signals of a standard EIA RS-232C interface”；SRC-003 p. 1 则称所述 PC 接口为 full 232 的 subset。保留各自对象和措辞；没有相关版本完整标准及线缆完整资料，不能宣布完全消歧、已证实全标准合规或 TI 被推翻。 |
+| TI Figure 6 原印 RST / 邻接正文 RTS | SRC-003 p. 7 图 6 代码栏原图印 **RST**，描述为 Request To Send；p. 8 标题与 p. 9 Figure 7 使用 **RTS**。记录为来源内部不一致，不静默改字，不说成 OCR 错字。 |
+| IBM p. 20 的手写 J2 / Port 改标 | 来源、正确性与对应卡修订未知；只采用未受改标影响的首段功能文字，不采用 J2 设置，也不把手写当作原厂授权勘误。 |
+| IBM AT 原图 / 其他来源的芯片或几何细节 | 不从 SRC-002 的 8250 或 SRC-003 的器件例子推断 AT 卡芯片；不猜 connector gender、mating/solder view，也不将 controller pin 编号混成外部 connector contact 编号。 |
 | TIA-232-F / ISO 2110 全文与版本 | 本期未取得/审阅；原地图中的第三方 TIA 预览和 ISO catalog 记录不视为全文，也不增加本期 E1 计数。 |
 | 现代 USB adapter / tty / COM | 没有本期产品或驱动证据，不推断通用 buffering、signal 暴露或兼容行为。 |
 | E3/E4 与本期阅读 | 均未执行；文献清单的导读不作为实验结果。 |
 
 ## 完成门槛
 
-虽然本期有 E1 来源，展品仍为 `researching`。完整电气/机械标准、生命周期、关系、设备安全与实验等缺口见[总览](README.md)、[实验页](experiment.md)及[原资料地图](../../research/rs232-source-map.md)。没有关键来源的地方保留未知，不以增加元数据完整度代替研究。
+IBM 九接点原厂实现的获取/审阅子项已完成，实际增量见[三个连接器对象的导读](physical.md#ibm-at-three-connectors)和[AT 分层框图路线](physical.md#ibm-at-layers)。这不关闭整个 Gate 1：完整电气/机械标准与版本、all-signals/subset 的规范语义、生命周期、关系、设备安全与实验等缺口仍见[总览](README.md)、[实验页](experiment.md)及[原资料地图](../../research/rs232-source-map.md)。展品保持 `researching`、physical `stub` 和 `blocked-for-hardware`，没有 E3/E4；没有关键来源的地方保留未知，不以增加元数据完整度代替研究。

@@ -8,23 +8,23 @@
     "introduced": null,
     "mainstream": null,
     "declined": null,
-    "notes": "This reading slice compares V.24 (02/2000) definitions with the IBM PC April 1984 documented implementation; these source dates are not interface lifecycle dates."
+    "notes": "This reading slice compares V.24 (02/2000), IBM PC/5150 April 1984, TI September 2002, and the IBM AT Serial/Parallel Adapter chapter dated August 31, 1984 in Options and Adapters Volume 2 (volume edition: April 1984). These are source dates, not interface lifecycle or first-adoption dates."
   },
   "layers": {
-    "physical": { "status": "stub", "notes": "Documented object boundaries only; full standard/implementation contact mapping remains gated." },
+    "physical": { "status": "stub", "notes": "IBM AT original documentation distinguishes a 9-contact serial port, a 25-contact parallel port, and the 25-contact end of an optional serial cable; full standard/implementation contact mapping remains gated." },
     "electrical": { "status": "stub", "notes": "IBM implementation and UART/line-interface boundary only; no complete electrical-standard or device-safety review." },
     "signaling": { "status": "stub", "notes": "Data/control and UART framing are distinguished; full timing/framing/version comparison is unfinished." },
     "protocol": { "status": "documented", "notes": "Limited to selected DTE/DCE data/control circuit definitions in V.24 (02/2000), not a complete communications protocol." },
-    "host": { "status": "documented", "notes": "Limited to the IBM April 1984 Technical Reference BIOS/8250 services and send/status reading path; no modern OS or adapter claims." },
-    "ecosystem": { "status": "stub", "notes": "IBM external-modem context and later TI PC application context only; lifecycle and replacement/continuity research is unfinished." }
+    "host": { "status": "documented", "notes": "Limited to the IBM PC/5150 April 1984 Technical Reference (publication 6361453) BIOS/8250 services and send/status reading path; no modern OS or USB adapter claims." },
+    "ecosystem": { "status": "stub", "notes": "IBM PC/5150 external-modem context, a documented IBM AT adapter/optional-cable example, and later TI PC application context only; lifecycle and replacement/continuity research is unfinished." }
   },
   "roles": ["DTE", "DCE"],
   "topology": null,
   "evidence_summary": {
     "highest_level": "E1",
-    "primary_sources": 2,
+    "primary_sources": 3,
     "hardware_status": "blocked-for-hardware",
-    "notes": "Two E1 sources (V.24 and IBM publication 6361453) and one E2 TI application note were used. No E3 emulation or E4 measurement was performed."
+    "notes": "Three E1 sources (V.24, IBM publication 6361453, and the IBM AT Serial/Parallel Adapter chapter in Options and Adapters Volume 2) and one E2 TI application note were used. The new IBM document is counted once, not once per scan, OCR, or page. No E3 emulation or E4 measurement was performed."
   },
   "relationships": [],
   "safety_notes": [
@@ -32,7 +32,8 @@
     "TIA/ISO full-text and edition review, specific endpoint and cable evidence, electrical levels, directions, grounding, power, and hot-plug conditions remain unresolved."
   ],
   "open_questions": [
-    "Obtain and review the official TIA entry/full text, relevant ISO 2110 editions, IBM 9-contact original documentation, and edition differences identified in the source map.",
+    "Obtain and review the official TIA entry/full text, relevant ISO 2110 editions, and edition differences identified in the source map; the scoped IBM AT 9-contact original-document review is complete.",
+    "Resolve the normative scope of IBM's optional-cable all-signals wording versus TI's PC subset wording using the relevant full standards and complete cable documentation; the present functional comparison is not a resolution.",
     "Complete lifecycle, use-case-specific replacement and inheritance research before asserting relationship records.",
     "Establish sources for any selected modern OS, driver, adapter, and reproducible experiment before describing their behavior."
   ]
