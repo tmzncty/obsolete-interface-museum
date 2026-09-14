@@ -16,6 +16,8 @@ IBM 手册用外置 modem 说明 DTE 如何接入通信线路；TI 的 2002 年�
 
 新增的 AT 适配器原厂章节提供一个更具体的问题：一张卡上有九接点串口和二十五接点并口，串口的可选线缆也有二十五接点端；为什么仅认接点数还不够？见[物理页的三个对象对照](physical.md#ibm-at-three-connectors)。[SRC-004，pp. 1、19–20、24](sources.md#src-004)。
 
+2026-09-14 增补[极性侦探](electrical.md#v28-reading)：用 V.28 **03/1993** 的假设题分开 data 的 1/0 与 control 的 ON/OFF，并解释为什么 +2 V、恰好 ±3 V 或缺少参考点时不能随意补一个答案。它是文献阅读练习，不是接收器仿真或测量。[SRC-005](sources.md#src-005)。
+
 ## 一条阅读路线
 
 1. [角色与控制信号](protocol.md)：先站在 DTE/DCE 边界上辨认“谁发给谁”，不找针脚号。
@@ -44,7 +46,7 @@ IBM 手册用外置 modem 说明 DTE 如何接入通信线路；TI 的 2002 年�
 | 层 | 当前可读内容 | 状态 / 尚缺什么 |
 |---|---|---|
 | Physical | [IBM PC/5150 个案、AT 原厂九接点实现与两种二十五接点功能](physical.md) | `stub`；已补 AT 来源，完整标准/版次和实际映射交叉核验未完成 |
-| Electrical | [软件控制器与 line driver/receiver 的边界](electrical.md) | `stub`；完整标准要求、具体设备安全条件未完成 |
+| Electrical | [UART/线路边界与 V.28 极性阅读练习](electrical.md) | `stub`；完整标准要求、具体设备安全条件未完成 |
 | Signaling | [framing 与独立 control circuits 分开](protocol.md) | `stub`；完整时序、速率与版本比较未完成 |
 | Protocol / roles | [DTE/DCE、103/104、modem control](protocol.md) | `documented`；仅 V.24 (2000) 的选定功能定义 |
 | Host | [IBM 1984 BIOS/8250 读图路径](host-integration.md) | `documented`；仅所引 IBM 实现，不覆盖现代 OS |
@@ -69,7 +71,7 @@ V.24 §1.1 列举同步/异步以及多种线路服务情形；本期的外置 m
 
 ## 证据与安全状态
 
-本期实际使用 **3 份 E1、1 份 E2**，见[来源账本](sources.md)；新 IBM 章节按一份原厂文献计数，扫描/OCR/多个页面不重复计数，TI 仍是 E2。E1 并不等于“所有页面都完成验证”。没有运行仿真（E3），没有测量硬件（E4）。硬件状态为 `blocked-for-hardware`。
+本期实际使用 **4 份 E1、1 份 E2**，见[来源账本](sources.md)；新 IBM 章节与 V.28 各按一份文献计数，扫描/OCR/多个页面不重复计数，TI 仍是 E2；阅读题不产生 E3/E4。E1 并不等于“所有页面都完成验证”。没有运行仿真（E3），没有测量硬件（E4）。硬件状态为 `blocked-for-hardware`。
 
 IBM 9-contact 原厂资料获取/审阅子项已完成；TIA 官方入口/合法全文、ISO 2110 相关版次全文和标准版本对照等[原有门禁](../../research/rs232-source-map.md)仍未关闭。IBM 的 all-signals 与 TI 的 subset 措辞尚未完成规范语义消歧，详见[冲突账本](sources.md)。不得依本文或相似的 TX/RX/GND 名字直接接线，不提供 pin-to-pin、null-modem 制作或热插拔步骤。参见[硬件安全规则](../../docs/HARDWARE-SAFETY.md)。
 

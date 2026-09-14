@@ -8,7 +8,9 @@
 
 **2026-09-09 增补**：取得并审阅 SRC-004 的 IBM AT 适配器章节，核对卷/章身份与关键原图；复用既有 TI PDF 对读其 pp. 1、7–9。新增核验不表示重新审阅了旧切片的每一页。只在仓库记录引用与结论，不提交下载的全文或扫描图。
 
-实际使用的 E1 数由 2 份增至 3 份，目前共 **3 份 E1（V.24、IBM PC/5150 手册、IBM AT 适配器章节）和 1 份 E2（TI 应用笔记）**。新增 IBM 文献的 PDF、OCR、多个页面和多次复核只计一份 E1。研究地图中的其他来源不因被列在那里就自动算作本展品实际使用的 E1；原地图的 2026-09-01 记录与两次切片核验分开保留。
+**2026-09-14 增补**：重读 SRC-005 的 V.28 (03/1993) 既有缓存，核对身份、§§2–7 与关键图表；不是本日重新下载或重新认证官方文件的记录，也不冒称重读了旧切片每一页。
+
+实际使用的 E1 数在 2026-09-09 由 2 份增至 3 份，本次再增加 V.28，目前共 **4 份 E1（V.24、IBM PC/5150 手册、IBM AT 适配器章节、V.28）和 1 份 E2（TI 应用笔记）**。各文献的 PDF、OCR、多个页面和多次复核不重复计数。研究地图中的其他来源不因被列在那里就自动算作本展品实际使用的 E1；原地图的 2026-09-01 记录与各次增补分开保留。
 
 ## Source ledger
 
@@ -97,6 +99,20 @@ OCR 对汇编操作数有误识别，本期对 pp. 5-51–5-52 的关键字段�
 
 上述正文所引页脚均为 August 31, 1984。p. 19 / p. 24 的图用于核验对象和功能，不被转抄为接点表、pin-to-pin 表或配线图。p. 20 的手写风险和 p. 1 的 all-signals 措辞保留在下方冲突表。
 
+<a id="src-005"></a>
+
+### SRC-005 — ITU-T V.28
+
+- **Evidence level:** E1。
+- **Author / organization:** International Telecommunication Union, ITU-T。
+- **Document / version / date:** Recommendation V.28 **(03/1993)**, *Electrical characteristics for unbalanced double-current interchange circuits*。封面/页脚印作 03/93；前言记录由 Study Group XVII (1988–1993) 修订、WTSC（Helsinki，March 1–12, 1993）批准。
+- **Location / review:** [既有资料地图所列官方入口](https://www.itu.int/rec/T-REC-V.28-199303-I/en)。2026-09-14 复用并审阅本地缓存；文献身份与地图 S3 一致。本次未重新联网核验官方状态或文件字节，不把缓存复核写成新下载记录。
+- **Pages / section:** §2/Figure 1 在印刷 p. 1；§§3–4 在 p. 2；§5 在 p. 3；Table 1 与 §6 前部在 p. 4；§6 后部与完整 §7 在 p. 5。此次 10 页 PDF 的文件页 5–9 对应印刷 pp. 1–5，封面/前言为文件页 1/2。已完整阅读 §§2–7，另读 §1 与 Annex A 以确认范围；身份及所用正文/图表另经页面图像核对。
+- **Used for:** V1 的 reference point；data 与 control/timing 的不同极性语义；严格不等号、transition region 与 application-dependent fault interpretation；[假设题的答案和限定](electrical.md#v28-reading)。
+- **Scope:** 所引 1993 文献的限定阅读，不代替完整 TIA-232 标准、设备合规核验、动态接收器模型或实测。§5 的 d.c. telegraph-type 特例与 §7 的故障分类必须保留。
+- **Notes:** 缓存为 95,109 bytes、10 文件页；SHA-256 `703e379e3d14672d21112c90e136cc549158e9e5de9d67778c8517268ed2b1e9`，仅标识本次所读文件，不是新取得的官方哈希。PDF 元数据的 1997/1998 创建/修改日期不是 Recommendation 版次；提取文本的旧字体错误以原页图像核对，不提交整份 PDF、提取全文或页面图。
+- **Research-map ID:** S3。
+
 ## Claim ledger
 
 `confirmed` / `supported` 仅指所列文献范围内的证据状态，不代表实测或完成整个展品。
@@ -114,6 +130,8 @@ OCR 对汇编操作数有误识别，本期对 pp. 5-51–5-52 的关键字段�
 | CLM-009 | 文献所述可选串行通信线缆另有 25-contact 端，与卡的 25-contact 并行口是不同对象；接点数/外形不足以认定功能 | physical / ecosystem | SRC-004，pp. 1、20、24 | 文献内部对象对照，不证明任意线缆映射、实物互插或电气兼容 | confirmed |
 | CLM-010 | AT 串行框图将 communications controller、EIA receivers/drivers 与 9-pin connector 分开；并串转换不等于外部 parallel port | physical / electrical / host | SRC-004，pp. 1–3；对读 SRC-003，pp. 1、9 Figure 8 | 各自实现的分层证据，不互相移植芯片型号或软件路径 | confirmed |
 | CLM-011 | IBM 串行图从适配器视角的三发五收数据/控制分组，与 TI 的 three transmit / five receive 说明可限定对读；Signal Ground 另列 | signaling / roles | SRC-004，p. 19；SRC-003，pp. 1、7–9 | 功能分组对照；三发不是三条用户数据通道，不解决全部标准 circuits 或接线 | supported |
+| CLM-012 | V1 以 interchange point 的 signal ground/common return 为参考；Table 1 用严格 `< −3 V` / `> +3 V` 分别对应 data 1/0、control/timing OFF/ON | electrical | SRC-005，§2/Figure 1、§5、Table 1，pp. 1、3–4 | V.28 (03/1993) 通常极性约定；不是供电轨、针脚映射或实测 | confirmed |
+| CLM-013 | Table 1 不为恰好 ±3 V 分配稳定状态；transition region 的读题判断不能代替 §7 依应用而定的故障解释，§5 还保留限定的电报极性特例 | electrical | SRC-005，§5、Table 1、§7，pp. 3–5 | 文献条件与假设题，不预测任意接收器输出或认证设备合规 | confirmed |
 
 ## 冲突与不采用的推论
 

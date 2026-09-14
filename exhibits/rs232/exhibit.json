@@ -12,7 +12,7 @@
   },
   "layers": {
     "physical": { "status": "stub", "notes": "IBM AT original documentation distinguishes a 9-contact serial port, a 25-contact parallel port, and the 25-contact end of an optional serial cable; full standard/implementation contact mapping remains gated." },
-    "electrical": { "status": "stub", "notes": "IBM implementation and UART/line-interface boundary only; no complete electrical-standard or device-safety review." },
+    "electrical": { "status": "stub", "notes": "IBM implementation/UART boundary plus a V.28 (03/1993) significant-level reading exercise, including strict boundaries and fault/polarity exceptions; no complete electrical-standard or device-safety review." },
     "signaling": { "status": "stub", "notes": "Data/control and UART framing are distinguished; full timing/framing/version comparison is unfinished." },
     "protocol": { "status": "documented", "notes": "Limited to selected DTE/DCE data/control circuit definitions in V.24 (02/2000), not a complete communications protocol." },
     "host": { "status": "documented", "notes": "Limited to the IBM PC/5150 April 1984 Technical Reference (publication 6361453) BIOS/8250 services and send/status reading path; no modern OS or USB adapter claims." },
@@ -22,9 +22,9 @@
   "topology": null,
   "evidence_summary": {
     "highest_level": "E1",
-    "primary_sources": 3,
+    "primary_sources": 4,
     "hardware_status": "blocked-for-hardware",
-    "notes": "Three E1 sources (V.24, IBM publication 6361453, and the IBM AT Serial/Parallel Adapter chapter in Options and Adapters Volume 2) and one E2 TI application note were used. The new IBM document is counted once, not once per scan, OCR, or page. No E3 emulation or E4 measurement was performed."
+    "notes": "Four E1 sources (V.24, IBM publication 6361453, the IBM AT Serial/Parallel Adapter chapter in Options and Adapters Volume 2, and V.28) and one E2 TI application note were used. Each document is counted once, not once per scan, OCR, or page. V.28 was rereviewed from a cached copy on 2026-09-14; hypothetical reading questions are not receiver simulation. No E3 emulation or E4 measurement was performed."
   },
   "relationships": [],
   "safety_notes": [
