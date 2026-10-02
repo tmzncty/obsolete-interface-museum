@@ -12,7 +12,7 @@
 
 ## 线索二：SATA 与 SAS 区别的术语种子（09-20 备份对话）
 
-对话覆盖点（供未来 terminology 文档引用）：SAS=SCSI 协议族、双端口、扩展器拓扑、企业 TLER/振动规格 vs SATA=ATA 族单端口消费级；协议分层上 SATA 可桥接于 SAS 控制器而反之不行。此线按 ROADMAP 原计划先建 terminology 文档，对话内容仅作种子。
+对话覆盖点（供未来 terminology 文档引用）：SAS 协议本体的实特征=双端口窄链路与扩展器（expander）拓扑（SCSI 协议族）；TLER、企业振动/可靠性规格更多是**产品定位差异**而非协议本体区别，SATA 消费盘 vs SAS 企业盘常这么分但不是协议本身的分界；协议分层上 SATA 可桥接于 SAS 控制器而反之不行。此线按 ROADMAP 原计划先建 terminology 文档，对话内容仅作种子。
 
 ## 本文件不处理
 
